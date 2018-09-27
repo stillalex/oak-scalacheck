@@ -17,7 +17,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <encoding>UTF-8</encoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <scala.version>2.12.2</scala.version>
+        <scala.version>2.12.5</scala.version>
         <oak.version>1.9.8</oak.version>
     </properties>
 
@@ -36,6 +36,12 @@
             <artifactId>oak-core</artifactId>
             <version>${oak.version}</version>
             <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.jackrabbit</groupId>
+                    <artifactId>oak-blob-plugins</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <!-- LOGGING -->
@@ -52,7 +58,7 @@
             <groupId>org.apache.jackrabbit</groupId>
             <artifactId>oak-core</artifactId>
             <version>${oak.version}</version>
-            <scope>provided</scope>
+            <scope>test</scope>
             <classifier>tests</classifier>
         </dependency>
 
@@ -67,6 +73,7 @@
             <groupId>org.scalacheck</groupId>
             <artifactId>scalacheck_2.12</artifactId>
             <version>1.14.0</version>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
